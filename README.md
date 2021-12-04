@@ -114,10 +114,10 @@ json_table.draw()
 ### HTML file
 ```sh
 import pyT.Table as table
-json = table.HTML('./tab.html', n=0)# n specifies which table to be parsed and rendered.
+html = table.HTML('./tab.html', n=0)# n specifies which table to be parsed and rendered.
 n = 0 => First table on the page.
 n = 1 => Second table on the page.
-html_table = Table(*json)
+html_table = Table(*html)
 html_table.draw()
 ```
 ### Output
