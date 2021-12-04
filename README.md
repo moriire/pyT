@@ -1,5 +1,6 @@
 # pyT
-PyT is a a  command line tool and as well a library for visualising various data formats like:
+PyT is a library for visualising various data formats in a table:
+### Supported formats
 - JSON
 - HTML Table
 - CSV
