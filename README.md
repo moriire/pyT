@@ -40,18 +40,18 @@ PyT is a a  command line tool and as well a library for visualising various data
   ]
 }
 ```
-```sh
+``sh
 import pyT.Table as table
 table = Table(*item["members"])
 json_table.draw()
-```
+``
 ### JSON file
-```sh
+``sh
 import pyT.Table as table
 json = table.JSON('./tab.json', "members")
 json_table = Table(*json)
 json_table.draw()
-```
+``
 ### Output
 ```sh
 +----------------+----------------+----------------+----------------+
