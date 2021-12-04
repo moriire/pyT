@@ -4,7 +4,7 @@ PyT is a a  command line tool and as well a library for visualising various data
 - HTML Table
 - CSV
 - XML, etc.
-## Pros
+## Features
 - Print table of any size without distortions.
 - Support multiple file formats.
 - Better presentation of various data structures, types. 
