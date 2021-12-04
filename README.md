@@ -43,14 +43,14 @@ PyT is a a  command line tool and as well a library for visualising various data
 ```
 ```sh
 import pyT.Table as table
-table = Table(*item["members"])
+table = table(*item["members"])
 json_table.draw()
 ```
 ### JSON file
 ```sh
 import pyT.Table as table
 json = table.JSON('./tab.json', "members")
-json_table = Table(*json)
+json_table = table(*json)
 json_table.draw()
 ```
 ### Output
@@ -149,7 +149,7 @@ Vic Crumb,Shortstop,"Fat Vic",1911-1912
 ```sh
 import pyT.Table as table
 csv = table.HTML('./tab.csv')
-csv_table = Table(*csv)
+csv_table = table(*csv)
 csv_table.draw()
 ```
 ### Output
