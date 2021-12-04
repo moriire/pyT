@@ -148,8 +148,8 @@ Vic Crumb,Shortstop,"Fat Vic",1911-1912
 ### CSV file
 ```sh
 import pyT.Table as table
-json = table.HTML('./tab.csv')
-csv_table = Table(*json)
+csv = table.HTML('./tab.csv')
+csv_table = Table(*csv)
 csv_table.draw()
 ```
 ### Output
