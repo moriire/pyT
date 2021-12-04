@@ -138,3 +138,29 @@ html_table.draw()
 |   IBM Abdsalam   |  Elect Engineer  |     500, 000     |
 +------------------+------------------+------------------+
 ```
+### CSV
+```sh
+Player Name,Position,Nicknames,Years Active
+IBM Abdulsalam,First Base, "Mobolaji",1990-2200
+Bud Grimsby,Center Field,"The Reaper",1910-1917
+Vic Crumb,Shortstop,"Fat Vic",1911-1912
+```
+### CSV file
+```sh
+import pyT.Table as table
+json = table.HTML('./tab.csv')
+csv_table = Table(*json)
+csv_table.draw()
+```
+### Output
+```sh
++--------------+--------------+--------------+--------------+
+| Player Name  |   Position   |  Nicknames   | Years Active |
++--------------+--------------+--------------+--------------+
+|IBM Abdulsalam|  First Base  |  "Mobolaji"  |  1990-2200   |
++--------------+--------------+--------------+--------------+
+| Bud Grimsby  | Center Field | "The Reaper" |  1910-1917   |
++--------------+--------------+--------------+--------------+
+|  Vic Crumb   |  Shortstop   |  "Fat Vic"   |  1911-1912   |
++--------------+--------------+--------------+--------------+
+```
