@@ -23,11 +23,8 @@ class Table:
                 
         self.sym = f"{self.width * '-'}+"
 
-    def __mul__(self):
-            return self.sym*(self.l-1)
-
     def __str__(self):
-            return self.__mul__()
+            return self.sym
 
     def row(self, *row):
         out = "+"
@@ -54,6 +51,7 @@ class Table:
             st+=self.comp(*t)
         st+=self.row(*t)
         return st
+    
     @staticmethod
     def CSV(file):
         with open(file) as f:
@@ -62,18 +60,23 @@ class Table:
             return lines
     
     @staticmethod
-    def JSON(file):
-        z = []
+    def JSON(file, obj):
+        import json
         with open(file) as f:
-            lines = f.readlines()
-            for line in lines:
-                z.append(line.strip())
-        return z
+            data = json.dump(f.read())
+        return data[obj]
+
+    @staticmethod
+    def HTML(file, n=0):
+        from bs4 import BeautifulSoup as soup
+        proc = [], []
+        with open(file) as f:
+            data = f.read()
+            bs = soup(data, "html.parser").find_all("table")[n].findAll("tr")
+            for tr in bs:
+                proc[0].append(tr.select("td") or tr.select("th"))
+        for td in proc[0]:
+            proc[1].append(tuple(map(lambda x: x.get_text().strip(),  td)))
+        return proc[1]
         
-    
-#a=Table(adewale=['adewale', '0'], cet=['adewale', 'adewale'], jit=['adewale', 'adewale'])
-#a=Table({'name':'adewale', 'surname':'0'}, {'name':'adewale', 'surname':'0'},{'name':'adewale', 'surname':'0'})
-a=Table(('adewale', 'adewa1hfhfhle'),('adewale', 'adewale'))
-#print(a.draw())
-v=Table.CSV('C:/Users/Mobolaji/Downloads/contacts.csv')
-print(Table(*v))
+ 
