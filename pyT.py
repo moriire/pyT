@@ -6,7 +6,7 @@ class Table:
             self.width = max([len(j) for j in self.data[0]])+2
             self.l = len(self.data[0])
             if isinstance(self.data[0], dict):
-                header = self.data[0].keys()
+                header = tuple(self.data[0].keys())
                 self.info = list(map(lambda x: tuple(x.values()), self.data))
                 self.info.insert(0, tuple(header))
                 
@@ -16,20 +16,17 @@ class Table:
                 
         elif self.kdata:
             header = self.kdata.keys()
-            self.data =list(zip(*self.kdata.values()))
-            self.data.insert(0, tuple(header))
+            self.info =list(zip(*self.kdata.values()))
+            self.info.insert(0, tuple(header))
             self.width = max((len(j) for j in header))+2
             self.l = len(header)
                 
         self.sym = f"{self.width * '-'}+"
 
-    def __str__(self):
-            return self.sym
-
     def row(self, *row):
         out = "+"
         for s in row:
-            out += f"{str(self)}"
+            out += self.sym
         return out
     
     def _pos(self, u,v):
@@ -39,7 +36,7 @@ class Table:
     def col(self, *row):
         out = "|"
         for s in row:
-            out += f"{' '*self._pos(self.width, len(s))[0]}{s}{' '*self._pos(self.width, len(s))[1]}|"
+            out += f"{' '*self._pos(self.width, len(str(s)))[0]}{s}{' '*self._pos(self.width, len(str(s)))[1]}|"
         return out
 
     def comp(self, *row):
@@ -50,7 +47,7 @@ class Table:
         for t in self.info:
             st+=self.comp(*t)
         st+=self.row(*t)
-        return st
+        print(st)
     
     @staticmethod
     def CSV(file):
@@ -63,7 +60,7 @@ class Table:
     def JSON(file, obj):
         import json
         with open(file) as f:
-            data = json.dump(f.read())
+            data = json.load(f)
         return data[obj]
 
     @staticmethod
@@ -79,4 +76,13 @@ class Table:
             proc[1].append(tuple(map(lambda x: x.get_text().strip(),  td)))
         return proc[1]
         
- 
+class Sample:
+    def json(self):
+        return Table.JSON("tab.json", "members").draw()
+
+    def csv(self):
+        return Table.CSV("tab.csv", "members").draw()
+    
+    def csv(self):
+        return Table.HTML("tab.html").draw()
+
