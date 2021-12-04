@@ -65,3 +65,76 @@ json_table.draw()
 | Eternal Flame  |    1000000     |    Unknown     |  Immortality   |
 +----------------+----------------+----------------+----------------+
 ```
+### HTML
+```sh
+ <!doctype html>
+    <head>
+    </head>
+    <body>
+        <table border = "1" cellpadding = "5" cellspacing = "5">
+             <tr>
+                <th>Name and surname</th>
+                <th>Profession</th>
+                <th>Salary</th>
+             </tr>
+             <tr>
+                <td>Mobolaji Abdsalam</td>
+                <td>Elect Technician</td>
+                <td>55,000</td>
+             </tr>
+             <tr>
+                <td>Ibraheem Abdsalam</td>
+                <td>Software Engineer</td>
+                <td>700,000</td>
+             </tr>
+             <tr>
+                <td>IBM Abdsalam</td>
+                <td>Elect Engineer</td>
+                <td>500, 000</td>
+             </tr>
+             <tr>
+                <td>Mobolaji Abdsalam</td>
+                <td>Elect. Technician</td>
+                <td>55, 000</td>
+             </tr>
+             <tr>
+                <td>Ibraheem Abdsalam</td>
+                <td>Software Engineer</td>
+                <td>700, 000</td>
+             </tr>
+             <tr>
+                <td>IBM Abdsalam</td>
+                <td>Elect Engineer</td>
+                <td>500, 000</td>
+             </tr>
+        </table>
+    </body>
+</html>
+```
+### HTML file
+```sh
+import pyT.Table as table
+json = table.HTML('./tab.html', n=0)# n specifies which table to be parsed and rendered.
+n = 0 => First table on the page.
+n = 1 => Second table on the page.
+html_table = Table(*json)
+html_table.draw()
+```
+### Output
+```sh
++------------------+------------------+------------------+
+| Name and surname |    Profession    |      Salary      |
++------------------+------------------+------------------+
+|Mobolaji Abdsalam | Elect Technician |      55,000      |
++------------------+------------------+------------------+
+|Ibraheem Abdsalam |Software Engineer |     700,000      |
++------------------+------------------+------------------+
+|   IBM Abdsalam   |  Elect Engineer  |     500, 000     |
++------------------+------------------+------------------+
+|Mobolaji Abdsalam |Elect. Technician |     55, 000      |
++------------------+------------------+------------------+
+|Ibraheem Abdsalam |Software Engineer |     700, 000     |
++------------------+------------------+------------------+
+|   IBM Abdsalam   |  Elect Engineer  |     500, 000     |
++------------------+------------------+------------------+
+```
